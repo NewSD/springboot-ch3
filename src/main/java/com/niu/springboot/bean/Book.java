@@ -11,7 +11,7 @@ public class Book {
     private Integer id;
     private String name;
     private String author;
-    private Float price;
+    protected Float price;
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date publicationDate;
 
