@@ -31,6 +31,7 @@ public class BookController {
         books.add(b1);
         books.add(b2);
         mv.addObject("books",books);
+//        设置视图名字books.html
         mv.setViewName("books");
         return mv;
     }

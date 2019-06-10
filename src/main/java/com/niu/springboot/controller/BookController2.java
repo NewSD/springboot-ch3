@@ -31,6 +31,7 @@ public class BookController2 {
         books.add(b2);
         mv.addObject("a", "cc");
         mv.addObject("books",books);
+        //        设置视图名字books.ftl
         mv.setViewName("books");
         return mv;
     }
