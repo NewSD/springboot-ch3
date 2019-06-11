@@ -21,7 +21,7 @@ public class FileUploadController {
 
     @PostMapping("/upload")
     public String upload(MultipartFile uploadFile, HttpServletRequest req) {
-        String realPath = req.getSession().getServletContext().getRealPath("/uploadFile");
+        String realPath = req.getSession().getServletContext().getRealPath("/uploadFile/");
         String format = sdf.format(new Date());
         File folder = new File(realPath + format);
         if (!folder.isDirectory()) {
