@@ -12,6 +12,7 @@
 	<artifactId>springboot-ch3</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>springboot-ch3</name>
+	<packaging>war</packaging>
 	<description>Demo project for Spring Boot ch3</description>
 
 	<properties>

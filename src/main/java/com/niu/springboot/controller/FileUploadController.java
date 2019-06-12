@@ -38,4 +38,27 @@ public class FileUploadController {
         }
         return "上传失败";
     }
+
+    @PostMapping("/uploads")
+    public String uploads(MultipartFile[] uploadFiles, HttpServletRequest req) {
+        for (MultipartFile uploadFile: uploadFiles) {
+            String realPath = req.getSession().getServletContext().getRealPath("/uploadFile/");
+            String format = sdf.format(new Date());
+            File folder = new File(realPath + format);
+            if (!folder.isDirectory()) {
+                folder.mkdirs();
+            }
+            String oldName = uploadFile.getOriginalFilename();
+            String newName = UUID.randomUUID().toString() + oldName.substring(oldName.lastIndexOf("."), oldName.length());
+            try {
+                uploadFile.transferTo(new File(folder, newName));
+                String filePath = req.getScheme() + "://" + req.getServerName() + ":" + req.getServerPort() + "/uploadFile/" + format + newName;
+//                return filePath;
+                System.out.println(filePath);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return "上传失败";
+    }
 }
